@@ -4,7 +4,6 @@ var app = express();
 
 
 app.use(express.static(config.staticPath));
-// app.use(app.router);
 
 app.set('views', __dirname + '/app/views');
 app.set('view engine', 'jade');
@@ -15,7 +14,7 @@ app.get('/', function (req, res) {
 });
 
 app.use(function(req, res, next){
-  res.status(404).sendFile(config.staticPath + '/404.html');
+  res.status(404).render(404);
 });
 
 var server = app.listen(3000, function() {
