@@ -1,25 +1,13 @@
 var express = require('express');
-var morgan = require('morgan');
-var config = require('./app/config/config');
 
 var app = express();
 
 
-
-
-app.use(express.static(config.staticPath));
-
-app.set('views', __dirname + '/app/views');
-app.set('view engine', 'jade');
-
-app.use(morgan('dev'));
-
+require('./app/config/config')(express, app);
 require('./app/router')(app);
 
 
-var server = app.listen(config.port, function() {
+var server = app.listen(app.get('port'), function() {
   var port = server.address().port;
-
-  console.log('App listening at http://localhost:%s', port);
-
+  console.log('%s app listening at http://localhost:%s', app.get('name'), port);
 });
