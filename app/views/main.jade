@@ -2,7 +2,7 @@ extends ./layout.jade
 
 block content
   .container(ng-controller="MainPageCtrl")
-    h1 {{appName}}
+    h1 {{appData.name}}
     ul
       li(ng-repeat="user in users")
         | {{user.name}}

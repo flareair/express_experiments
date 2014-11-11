@@ -41,7 +41,9 @@ module.exports = function (grunt) {
           'bower_components/jquery/dist/jquery.min.js',
           'bower_components/angular/angular.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
-          'client/js/{,*/}*.js'
+          'client/js/app.js',
+          'client/js/services.js',
+          'client/js/controllers.js'
          ],
         dest: 'public/js/production.js',
       },
@@ -75,5 +77,8 @@ module.exports = function (grunt) {
  
   grunt.registerTask('build', [
     'concat','less','autoprefixer','cssmin'
+  ]);
+  grunt.registerTask('start', [
+    'build', 'nodemon'
   ]);
 };
