@@ -1,12 +1,13 @@
-var main = require('./controllers/main');
+var pages = require('./controllers/pages');
 var users = require('./controllers/users');
+var globals = require('./controllers/globals');
 
 module.exports = function(app) {
-  app.get('/', main.page);
+  app.get('/', pages.index);
+  app.get('/appinfo', globals.info);
   app.get('/users', users.all);
-  app.get('/appinfo', main.info);
+  app.get('/user/:id', users.getUser);
+  app.get('/partials/:name', pages.partials);
 
-  app.use(function(req, res){
-    res.status(404).render(404);
-  });
+  app.get('*', pages.error404);
 };

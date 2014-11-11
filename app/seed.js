@@ -17,6 +17,12 @@ var db = {
       'name': 'Sasha',
       'age': '28',
       'info': 'King of all the world2'
+    },
+    {
+      'id': '4',
+      'name': 'Stas',
+      'age': '24',
+      'info': 'King of all the world4'
     }
   ]
 };

@@ -4,6 +4,7 @@ var app = express();
 
 
 require('./app/config/config')(express, app);
+
 require('./app/router')(app);
 
 

@@ -1,5 +1,6 @@
-App.controller('MainPageCtrl', function($scope, Api) {
+App.controller('RootCtrl', ['$scope', 'Api', function($scope, Api) {
   // get App data
+
   Api.getAppData()
     .success(function(info) {
       $scope.appData = info;
@@ -8,6 +9,9 @@ App.controller('MainPageCtrl', function($scope, Api) {
       $scope.appData = undefined;
       console.error('Cant get App data');
     });
+}]);
+
+App.controller('UsersCtrl', ['$scope', 'Api', function($scope, Api) {
 
   // Get users
   Api.getUsers()
@@ -18,4 +22,4 @@ App.controller('MainPageCtrl', function($scope, Api) {
       $scope.users = undefined;
       console.log('Cant get user list');
     });
-});
+}]);

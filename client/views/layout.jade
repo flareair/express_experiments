@@ -1,0 +1,10 @@
+doctype
+html(ng-app="App" ng-controller="RootCtrl")
+  head
+    base(href="/")
+    title {{appData.name}}
+    link(rel="stylesheet", href="/css/production.css")
+  body
+    block content
+
+    script(src="/js/production.js")
