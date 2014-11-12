@@ -8,6 +8,6 @@ module.exports.partials = function(req, res) {
 };
 
 module.exports.error404 = function(req, res) {
-  res.render('404');
+  res.status(404).render('404');
 };
 
