@@ -1,1 +1,10 @@
-h1 users
+h1 Users
+.row
+  .col-sm-6.col-md-3(ng-repeat="user in users")
+    .thumbnail
+      a(href="user/{{user.id}}")
+        img.img-responsive(ng-src="{{user.photo}}")
+      .caption
+        h3 {{user.name}}
+        p.text-right
+          a.btn.btn-default(href="user/{{user.id}}") More...

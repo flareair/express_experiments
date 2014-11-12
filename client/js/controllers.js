@@ -17,6 +17,11 @@ App.controller('RootCtrl', ['$scope','$location', 'Api',
     };
   }]);
 
+App.controller('MainPageCtrl', ['$scope', function() {
+  // Main Page controller
+}]);
+
+
 App.controller('UsersCtrl', ['$scope', '$location', 'Api',
   function($scope, $location, Api) {
 

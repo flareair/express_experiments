@@ -3,30 +3,42 @@ var db = {
     {
       'id': '1',
       'name': 'Yaroslav',
-      'age': '23',
-      'city': 'Saint-P',
-      'info': 'King of all the world'
+      'about': {
+        'age': '23',
+        'city': 'Saint-P',
+        'info': 'King of all the world',
+      },
+      'photo': 'http://placehold.it/350x350'
     },
     {
       'id': '2',
       'name': 'Kirill',
-      'age': '22',
-      'city': 'Murmansk',
-      'info': 'King of all the world1'
+      'about': {
+        'age': '23',
+        'city': 'Saint-P',
+        'info': 'Very bad person',
+      },
+      'photo': 'http://placehold.it/350x350'
     },
     {
       'id': '3',
       'name': 'Sasha',
-      'age': '28',
-      'city': 'Saint-P',
-      'info': 'King of all the world2'
+      'about': {
+        'age': '27',
+        'city': 'Saint-P',
+        'info': 'Old man',
+      },
+      'photo': 'http://placehold.it/350x350'
     },
     {
       'id': '4',
       'name': 'Stas',
-      'age': '24',
-      'city': 'Glazgo',
-      'info': 'King of all the world4'
+      'about': {
+        'age': '23',
+        'city': 'Saint-P',
+        'info': 'nope',
+      },
+      'photo': 'http://placehold.it/350x350'
     }
   ]
 };

@@ -5,10 +5,10 @@ App.config(['$routeProvider', '$locationProvider',
     $routeProvider.
       when('/', {
         templateUrl: '/partials/index',
-        controller: 'UsersCtrl'
+        controller: 'MainPageCtrl'
       }).
       when('/users', {
-        templateUrl: '/partials/index',
+        templateUrl: '/partials/users',
         controller: 'UsersCtrl'
       }).      
       when('/404', {
