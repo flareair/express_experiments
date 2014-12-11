@@ -7,7 +7,6 @@ h1 {{user.name}}
   .col-md-9
     ul.list-unstyled
       li(ng-repeat="(name, property) in user.about")
-        b {{name}}: 
-        {{property}}
+        b {{name}}: {{property}}
 
 a(href="/users") Return to user list
