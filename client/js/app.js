@@ -14,7 +14,7 @@ App.config(['$routeProvider', '$locationProvider',
       when('/404', {
         templateUrl: '/partials/404'
       }).      
-      when('/user/:id', {
+      when('/users/:id', {
         templateUrl: '/partials/user',
         controller: 'UserCtrl'
       }).
