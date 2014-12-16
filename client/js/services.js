@@ -7,7 +7,7 @@ App.factory('Api', function($http, $routeParams) {
       return $http.get('api/appinfo');
     },
     getUser: function() {
-      return $http.get('api/users/'+ $routeParams.id);
+      return $http.get('api/users/'+ $routeParams.name);
     },
     getPageTitle: function(route, userName) {
       var title = '';

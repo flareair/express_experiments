@@ -43,9 +43,11 @@ App.controller('UserCtrl', ['$scope', '$location', 'Api',
       .success(function(user) {
         $scope.$parent.pageTitle = Api.getPageTitle($location.path(), user.name);
         $scope.user = user;
+        console.log(user);
       })
       .error(function() {
         $scope.user = undefined;
+        console.log('User not found!!!');
       });
 
     

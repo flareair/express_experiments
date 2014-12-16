@@ -2,9 +2,9 @@ h1 Users
 .row
   .col-sm-6.col-md-3(ng-repeat="user in users")
     .thumbnail
-      a(href="users/{{user._id}}")
+      a(href="users/{{user.name}}")
         img.img-responsive(ng-src="{{user.photo}}")
       .caption
         h3 {{user.name}}
         p.text-right
-          a.btn.btn-default(href="users/{{user._id}}") More...
+          a.btn.btn-default(href="users/{{user.name}}") More...
