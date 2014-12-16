@@ -11,14 +11,15 @@ App.factory('Api', function($http, $routeParams) {
     },
     getPageTitle: function(route, userName) {
       var title = '';
+      console.log(route);
       route = route.split('/');
       switch (route[1]) {
         case 'users':
           title =  '| Users';
-          break;
-        case 'user':
-          title =  '| ' + userName;
-          break;          
+          if (route[2]) {
+            title =  '| User ' + userName;
+          }
+          break;      
         default:
           title =  '';
       }
