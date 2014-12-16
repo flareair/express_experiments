@@ -9,7 +9,7 @@ module.exports.all = function(req, res) {
 
 module.exports.getUserByName = function(req, res) {
   user.findOne(req.params.name, function(err, user) {
-    if (!err && user[0]!= undefined) {
+    if (!err && user[0]!== undefined) {
       res.json(user[0]);
       console.log(user[0]);
     }
