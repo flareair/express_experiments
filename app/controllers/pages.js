@@ -7,7 +7,6 @@ module.exports.partials = function(req, res) {
   res.render('partials/' + name);
 };
 
-module.exports.error404 = function(req, res) {
-  res.status(404).render('404');
+module.exports.page404 = function(req, res) {
+  res.status(404).render('main');
 };
-

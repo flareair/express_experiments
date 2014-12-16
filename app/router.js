@@ -7,5 +7,6 @@ module.exports = function(app) {
   app.get('/api/users', users.all);
   app.get('/api/user/:id', users.getUser);
   app.get('/partials/:name', pages.partials);
+  app.get('/404', pages.page404);
   app.get('*', pages.layout);
 };

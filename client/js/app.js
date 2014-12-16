@@ -10,16 +10,16 @@ App.config(['$routeProvider', '$locationProvider',
       when('/users', {
         templateUrl: '/partials/users',
         controller: 'UsersCtrl'
-      }).      
-      when('/user/notfound', {
-        templateUrl: '/partials/500'
+      }).
+      when('/404', {
+        templateUrl: '/partials/404'
       }).      
       when('/user/:id', {
         templateUrl: '/partials/user',
         controller: 'UserCtrl'
       }).
       otherwise({
-       templateUrl: '/partials/404'
+       redirectTo: '/404'
       });
     $locationProvider.html5Mode(true);
   }]);

@@ -45,9 +45,7 @@ App.controller('UserCtrl', ['$scope', '$location', 'Api',
         $scope.user = user;
       })
       .error(function() {
-        // $scope.user = undefined;
-        console.log('Cant get user');
-        $location.path('/user/notfound');
+        $scope.user = undefined;
       });
 
     

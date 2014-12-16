@@ -1,12 +1,18 @@
-h1 {{user.name}}
+div(ng-if="user")
+  h1 {{user.name}}
 
-.row
-  .col-md-3
-    .thumbnail
-      img.img-responsive(ng-src="{{user.photo}}")
-  .col-md-9
-    ul.list-unstyled
-      li(ng-repeat="(name, property) in user.about")
-        b {{name}}: {{property}}
+  .row
+    .col-md-3
+      .thumbnail
+        img.img-responsive(ng-src="{{user.photo}}")
+    .col-md-9
+      ul.list-unstyled
+        li(ng-repeat="(name, property) in user.about")
+          b {{name}}: {{property}}
 
-a(href="/users") Return to user list
+  a(href="/users") Return to user list
+
+
+div(ng-if="user == undefined")
+  h1 User not found
+  a(href="/users") Return to user list
