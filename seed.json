@@ -1,0 +1,29 @@
+[
+  {      
+    "name": "Yaroslav",
+    "about": {
+      "age": "23",
+      "city": "Saint-P",
+      "info": "King of all the world"
+    },
+    "photo": "http://placehold.it/350x350"
+  },
+  {      
+    "name": "Kirill",
+    "about": {
+      "age": "23",
+      "city": "Saint-P",
+      "info": "O rly?"
+    },
+    "photo": "http://placehold.it/350x350"
+  },
+  {      
+    "name": "Sasha",
+    "about": {
+      "age": "29",
+      "city": "Saint-P",
+      "info": "Lox"
+    },
+    "photo": "http://placehold.it/350x350"
+  }
+]
