@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var usersSchema = new Schema({
   name: {
     type: String,
-    unique: true
+    unique: true,
+    required: true
   },
   about: {
     age: {
@@ -33,7 +34,6 @@ usersSchema.statics.all = function(callback) {
 };
 
 usersSchema.statics.findOne = function(name, callback) {
-  console.log(name);
   this.find({name: name}, callback);
 };
 

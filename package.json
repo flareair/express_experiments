@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "",
-    "start": "node app.js"
+    "start": "node app.js",
+    "seed": "mongoimport --db express --collection users seed.json --arrayJson"
   },
   "author": "flareair",
   "repository": {
