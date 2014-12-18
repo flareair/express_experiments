@@ -3,6 +3,7 @@ var user = require('../models/users.js');
 module.exports.all = function(req, res) {
   
   user.all(function(err, users) {
+    res.set('Content-Type', 'application/json');
     res.json(users);
   });
 };

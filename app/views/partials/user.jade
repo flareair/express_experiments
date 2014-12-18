@@ -8,7 +8,9 @@ div(ng-if="user")
     .col-md-9
       ul.list-unstyled
         li(ng-repeat="(name, property) in user.about")
-          b {{name}}: {{property}}
+          b {{name}}: 
+          {{property}}
+      button.editUser.btn.btn-default Edit profile
 
   a(href="/users") Return to user list
 

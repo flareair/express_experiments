@@ -7,9 +7,18 @@ var usersSchema = new Schema({
     unique: true
   },
   about: {
-    age: Number,
-    city: String,
-    info: String,
+    age: {
+      type: String,
+      default: 'not set'
+    },
+    city: {
+      type: String,
+      default: 'unknown'
+    },
+    info: {
+      type: String,
+      default: 'empty'
+    },
   },
   photo: {
     type: String,

@@ -14,6 +14,6 @@ module.exports = function(express, app) {
   app.set('port', process.env.PORT || appData.defaultPort);
   app.set('views', path.join(__dirname, '../views'));
   app.set('view engine', 'jade');
-  
+
 };
 
