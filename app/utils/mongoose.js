@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express');
+var config = require('../config/index');
+
+mongoose.connect(config.get('mongoose:url'),config.get('mongoose:options'));
 
 module.exports = mongoose;

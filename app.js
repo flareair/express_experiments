@@ -2,16 +2,9 @@ var express = require('express');
 
 var app = express();
 
-
-
-
-
 require('./app/config/config')(express, app);
 
 require('./app/config/router')(app);
-
-
-
 
 
 var server = app.listen(app.get('port'), function() {

@@ -1,5 +1,5 @@
-var appData = require('./../config/constants');
+var config = require('./../config/index');
 
 module.exports.info = function(req, res) {
-  res.send(appData);
+  res.send(config.get('app'));
 };

@@ -1,0 +1,18 @@
+{
+  "port": 8000,
+  "app": {
+    "name": "Microtalk",
+    "description": "Simple app for a friends"
+  },
+
+  "mongoose": {
+    "url": "mongodb://localhost/express",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  }
+}

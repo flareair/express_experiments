@@ -19,7 +19,8 @@
     "compression": "^1.2.2",
     "express": "^4.10.1",
     "jade": "^1.7.0",
-    "mongoose": "^3.8.20"
+    "mongoose": "^3.8.20",
+    "nconf": "^0.7.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
