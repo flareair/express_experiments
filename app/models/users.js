@@ -7,6 +7,13 @@ var usersSchema = new Schema({
     unique: true,
     required: true
   },
+  hashedPassword: {
+    type: String,
+  },
+  salt: {
+    type: String,
+    default: Math.random() * 1000 + '',
+  },
   about: {
     age: {
       type: String,

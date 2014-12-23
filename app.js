@@ -20,7 +20,7 @@ db.once('open', function callback () {
 });
 
 
-require('./app/router')(app);
+require('./app/config/router')(app);
 
 
 

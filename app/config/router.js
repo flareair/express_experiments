@@ -1,10 +1,10 @@
-var pages = require('./controllers/pages');
-var users = require('./controllers/users');
-var globals = require('./controllers/globals');
+var pages = require('../controllers/pages');
+var users = require('../controllers/users');
+var globals = require('../controllers/globals');
 
 module.exports = function(app) {
   app.get('/api/appinfo', globals.info);
-  app.post('/api/users/new', users.newUser);
+  app.post('/api/newuser', users.newUser);
   app.get('/api/users/:name', users.getUserByName);
   app.get('/api/users', users.all);
   app.get('/partials/:name', pages.partials);

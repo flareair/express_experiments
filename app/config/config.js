@@ -9,6 +9,7 @@ module.exports = function(express, app) {
   app.use(express.static(path.join(__dirname, '../../public')));
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
 
   app.set('name', appData.name);
   app.set('port', process.env.PORT || appData.defaultPort);

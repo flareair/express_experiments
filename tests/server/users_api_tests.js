@@ -1,10 +1,17 @@
 var should = require('should');
 var request = require('supertest');
 var app = require('../../app');
+var utils = require('../../app/utils/utils');
 
 describe('User Api tests', function() {
-
+    before(function(done) {
+      utils.clearDB(done);
+    });
   describe('Get all users response', function() {
+
+    before(function(done) {
+      utils.inputSeed(done);
+    });
 
     it('should be JSON in UTF-8', function(done) {
       request(app)
@@ -40,7 +47,7 @@ describe('User Api tests', function() {
     it('should be with JSON in UTF-8', function(done) {
       request(app)
         .get('/api/users/Yaroslav')
-        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect('Content-Type', /json/)
         .expect(200, done);
     });
 
@@ -75,5 +82,16 @@ describe('User Api tests', function() {
         .end(done);
     });
 
+  });
+
+  describe('POST a new user request', function() {
+    it('should create new user in db', function(done) {
+      request(app)
+        .post('/api/newuser')
+        .set('Content-Type', 'application/json')
+        .send({name: 'test'})
+        .expect(200)
+        .end(done);      
+    });
   });
 });

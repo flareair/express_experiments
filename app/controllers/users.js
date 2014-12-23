@@ -9,6 +9,7 @@ module.exports.all = function(req, res) {
 };
 
 module.exports.getUserByName = function(req, res) {
+  console.log(req.body);
   User.findOne(req.params.name, function(err, user) {
     if (!err && user[0]!== undefined) {
       res.json(user[0]);
@@ -24,10 +25,12 @@ module.exports.getUserByName = function(req, res) {
 };
 
 module.exports.newUser = function(req, res) {
+  console.log('got a request!');
   console.log(req.body);
   var newUser = new User(req.body);
   newUser.save(function(err) {
     if (err) {
+      res.send(err);
       return console.log(err);
     }
     res.send('OK');
