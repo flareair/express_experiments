@@ -56,7 +56,6 @@ usersSchema.methods.checkPassword = function(password) {
 
 usersSchema.virtual('password')
   .set(function(password) {
-    console.log('Pass: ', password);
     this._plainPassword = password;
     this.salt = Math.random() + '';
     if (this._plainPassword === '') {
