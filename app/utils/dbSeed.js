@@ -12,7 +12,6 @@ function open(callback) {
 function dropDB(callback) {
   var db = mongoose.connection.db;
   db.dropDatabase(callback);
-  console.log('Dropped!');
 }
 
 
@@ -74,6 +73,6 @@ var refreshDB = function(done) {
 };
 
 module.exports.createDB = createDB;
-module.exports.clearDB = refreshDB;
+module.exports.refreshDB = refreshDB;
 
 

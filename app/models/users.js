@@ -8,6 +8,11 @@ var usersSchema = new Schema({
     unique: true,
     required: true
   },
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
   hashedPassword: {
     type: String,
     required: true,
@@ -51,14 +56,18 @@ usersSchema.methods.checkPassword = function(password) {
 
 usersSchema.virtual('password')
   .set(function(password) {
+    console.log('Pass: ', password);
     this._plainPassword = password;
     this.salt = Math.random() + '';
+    if (this._plainPassword === '') {
+      return this.hashedPassword = null;
+    }
     this.hashedPassword = this.encryptPassword(password);
+    
   })
   .get(function() {
     return this._plainPassword;
   });
-
 
 usersSchema.statics.all = function(callback) {
   this.find({}, callback);

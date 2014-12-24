@@ -2,6 +2,7 @@
   {      
     "name": "Yaroslav",
     "password": "123123123",
+    "email": "email@ya.ru",
     "about": {
       "age": "23",
       "city": "Saint-P",
@@ -12,6 +13,7 @@
   {      
     "name": "Kirill",
     "password": "123123123",
+    "email": "kirill@ya.ru",
     "about": {
       "age": "23",
       "city": "Saint-P",
@@ -22,6 +24,7 @@
   {      
     "name": "Sasha",
     "password": "123123123",
+    "email": "sasha@ya.ru",
     "about": {
       "age": "29",
       "city": "Saint-P",

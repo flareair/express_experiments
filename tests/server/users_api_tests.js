@@ -88,7 +88,8 @@ describe('User Api tests', function() {
         .set('Content-Type', 'application/json')
         .send({
           name: 'test',
-          password: '123456asd'
+          password: '123456asd',
+          email: "foo@bar.com"
         })
         .expect(200)
         .expect(function(res) {
@@ -96,12 +97,48 @@ describe('User Api tests', function() {
         })        
         .end(done);
     });
-    // it('should send error if username is not unique', function() {
-
-    // });
+    it('should send error if username is not unique', function(done) {
+      request(app)
+        .post('/api/newuser')
+        .set('Content-Type', 'application/json')
+        .send({
+          name: 'Yaroslav',
+          password: 'foobar',
+          email: "foo@bar.com"
+        })
+        .expect(500)
+        .expect(function(res) {
+          var error = JSON.parse(res.error.text);
+          // console.log(error);
+          error.code.should.be.exactly(11000);
+          error.err.should.match(/Yaroslav/);
+        })        
+        .end(done);
+    });
+    it('Should send error if username, password, or email is empty', function(done) {
+      request(app)
+        .post('/api/newuser')
+        .set('Content-Type', 'application/json')
+        .send({
+          name: '',
+          password: '',
+          email: ''
+        })
+        .expect(500)
+        .expect(function(res) {
+          var error = JSON.parse(res.error.text);
+          console.log(error);
+          error.name.should.be.exactly('ValidationError');
+          error.errors.name.should.be.ok;
+          error.errors.hashedPassword.should.be.ok;
+          error.errors.email.name.should.be.ok;
+        })        
+        .end(done);
+    });
   });
 
   after(function(done) {
     dbSeed.refreshDB(done);
+    // done();
   });
 });

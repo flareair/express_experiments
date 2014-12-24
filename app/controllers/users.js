@@ -24,13 +24,13 @@ module.exports.getUserByName = function(req, res) {
 };
 
 module.exports.newUser = function(req, res) {
-  console.log('got a request!');
+  console.log('Got a new user request!');
   console.log(req.body);
   var newUser = new User(req.body);
   newUser.save(function(err) {
     if (err) {
       res.status(500).send(err);
-      return console.log(err);
+      return;
     }
     res.send('OK');
   });
