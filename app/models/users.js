@@ -9,10 +9,11 @@ var usersSchema = new Schema({
   },
   hashedPassword: {
     type: String,
+    required: true
   },
   salt: {
     type: String,
-    default: Math.random() * 1000 + '',
+    required: true
   },
   about: {
     age: {
@@ -34,6 +35,16 @@ var usersSchema = new Schema({
   }
 }, {collection: 'users'});
 
+
+usersSchema.virtual('password')
+  .set(function(password) {
+    this._plainPassword = password;
+    this.salt = Math.random() + '';
+    this.hashedPassword = password + 'password';
+  })
+  .get(function() {
+    return this._plainPassword;
+  });
 
 
 usersSchema.statics.all = function(callback) {

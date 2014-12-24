@@ -1,6 +1,7 @@
 [
   {      
     "name": "Yaroslav",
+    "password": "123123123",
     "about": {
       "age": "23",
       "city": "Saint-P",
@@ -10,6 +11,7 @@
   },
   {      
     "name": "Kirill",
+    "password": "123123123",
     "about": {
       "age": "23",
       "city": "Saint-P",
@@ -19,6 +21,7 @@
   },
   {      
     "name": "Sasha",
+    "password": "123123123",
     "about": {
       "age": "29",
       "city": "Saint-P",

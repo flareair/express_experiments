@@ -1,17 +1,10 @@
 var should = require('should');
 var request = require('supertest');
 var app = require('../../app');
-var utils = require('../../app/utils/utils');
 
 describe('User Api tests', function() {
-    before(function(done) {
-      utils.clearDB(done);
-    });
-  describe('Get all users response', function() {
 
-    before(function(done) {
-      utils.inputSeed(done);
-    });
+  describe('Get all users response', function() {
 
     it('should be JSON in UTF-8', function(done) {
       request(app)
