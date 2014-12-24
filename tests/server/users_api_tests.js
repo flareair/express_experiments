@@ -1,8 +1,12 @@
 var should = require('should');
 var request = require('supertest');
 var app = require('../../app');
+var dbSeed = require('../../app/utils/dbSeed');
 
 describe('User Api tests', function() {
+  before(function(done) {
+    dbSeed.createDB(done);
+  });
 
   describe('Get all users response', function() {
 
@@ -87,7 +91,17 @@ describe('User Api tests', function() {
           password: '123456asd'
         })
         .expect(200)
-        .end(done);      
+        .expect(function(res) {
+          res.text.should.be.exactly('OK');
+        })        
+        .end(done);
     });
+    // it('should send error if username is not unique', function() {
+
+    // });
+  });
+
+  after(function(done) {
+    dbSeed.refreshDB(done);
   });
 });

@@ -29,7 +29,7 @@ module.exports.newUser = function(req, res) {
   var newUser = new User(req.body);
   newUser.save(function(err) {
     if (err) {
-      res.send(err);
+      res.status(500).send(err);
       return console.log(err);
     }
     res.send('OK');

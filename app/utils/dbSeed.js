@@ -12,6 +12,7 @@ function open(callback) {
 function dropDB(callback) {
   var db = mongoose.connection.db;
   db.dropDatabase(callback);
+  console.log('Dropped!');
 }
 
 
@@ -39,13 +40,40 @@ function createUsers(callback) {
   });
 }
 
-async.series([
-  open,
-  dropDB,
-  requireModel,
-  createUsers
-], function(err) {
-  console.log(arguments);
-  mongoose.disconnect;
-  process.exit(err ? 255 : 0);
-});
+function closeConnection(callback) {
+  mongoose.connection.close(callback);
+}
+// async.series([
+// open,
+// dropDB,
+// requireModel,
+// createUsers
+// ], function(err) {
+//   console.log(arguments);
+//   mongoose.disconnect;
+//   process.exit(err ? 255 : 0);
+// });
+
+var createDB = function(done) {
+  async.series([
+    open,
+    dropDB,
+    requireModel,
+    createUsers,
+    // closeConnection
+  ], done);
+};
+
+
+var refreshDB = function(done) {
+  async.series([
+    dropDB,
+    requireModel,
+    createUsers,
+  ], done);
+};
+
+module.exports.createDB = createDB;
+module.exports.clearDB = refreshDB;
+
+
