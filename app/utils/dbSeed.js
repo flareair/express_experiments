@@ -8,10 +8,12 @@ function open(callback) {
   mongoose.connection.on('open', callback);
 }
 
+
 function dropDB(callback) {
   var db = mongoose.connection.db;
   db.dropDatabase(callback);
 }
+
 
 function requireModel(callback) {
   require('../models/users');
@@ -19,6 +21,7 @@ function requireModel(callback) {
     mongoose.models[modelName].ensureIndexes(callback);
   }, callback);
 }
+
 
 function createUsers(callback) {
   var User = require('../models/users');
@@ -46,4 +49,3 @@ async.series([
   mongoose.disconnect;
   process.exit(err ? 255 : 0);
 });
-

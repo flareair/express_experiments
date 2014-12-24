@@ -82,7 +82,10 @@ describe('User Api tests', function() {
       request(app)
         .post('/api/newuser')
         .set('Content-Type', 'application/json')
-        .send({name: 'test'})
+        .send({
+          name: 'test',
+          password: '123456asd'
+        })
         .expect(200)
         .end(done);      
     });

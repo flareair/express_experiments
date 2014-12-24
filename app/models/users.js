@@ -1,5 +1,6 @@
 var mongoose = require('../utils/mongoose');
 var Schema = mongoose.Schema;
+var crypto = require('crypto');
 
 var usersSchema = new Schema({
   name: {
@@ -9,11 +10,13 @@ var usersSchema = new Schema({
   },
   hashedPassword: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   salt: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   about: {
     age: {
@@ -36,11 +39,21 @@ var usersSchema = new Schema({
 }, {collection: 'users'});
 
 
+usersSchema.methods.encryptPassword = function(password) {
+  return crypto.createHmac('sha1', this.salt)
+    .update(password).digest('hex');
+};
+
+
+usersSchema.methods.checkPassword = function(password) {
+  return this.encryptPassword(password) === this.hashedPassword;
+};
+
 usersSchema.virtual('password')
   .set(function(password) {
     this._plainPassword = password;
     this.salt = Math.random() + '';
-    this.hashedPassword = password + 'password';
+    this.hashedPassword = this.encryptPassword(password);
   })
   .get(function() {
     return this._plainPassword;
