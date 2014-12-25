@@ -7,7 +7,11 @@ var config = require('./index');
 module.exports = function(express, app) {
 
   app.use(express.static(path.join(__dirname, '../../public')));
-  app.use(morgan('dev'));
+
+  if (app.get('env') === 'development') {
+    app.use(morgan('dev'));
+  }
+  
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
