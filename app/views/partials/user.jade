@@ -1,13 +1,13 @@
 div(ng-if="user")
-  h1 {{user.name}}
+  h1 {{user.info.name}}
 
   .row
     .col-md-3
       .thumbnail
-        img.img-responsive(ng-src="{{user.photo}}")
+        img.img-responsive(ng-src="{{user.info.photo}}")
     .col-md-9
       ul.list-unstyled
-        li(ng-repeat="(name, property) in user.about")
+        li(ng-repeat="(name, property) in user.info.about")
           b {{name}}: 
           | {{property}}
       button.editUser.btn.btn-default Edit profile
@@ -15,6 +15,6 @@ div(ng-if="user")
   a(href="/users") Return to user list
 
 
-div(ng-if="user == undefined")
+div(ng-if="user.info == undefined")
   h1 User not found
   a(href="/users") Return to user list

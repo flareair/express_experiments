@@ -1,6 +1,6 @@
 h1 Users
 .row
-  .col-sm-6.col-md-3(ng-repeat="user in users")
+  .col-sm-6.col-md-3(ng-repeat="user in users.usersList")
     .thumbnail
       a(href="users/{{user.name}}")
         img.img-responsive(ng-src="{{user.photo}}")

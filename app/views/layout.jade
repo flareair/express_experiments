@@ -1,11 +1,11 @@
 doctype
-html(ng-app="App" ng-controller="RootCtrl")
+html(ng-app="App" ng-controller="RootCtrl as app")
   head
     base(href="/")
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='{{appData.description}}')
-    title {{appData.name}} {{pageTitle}}
+    meta(name='description', content='{{app.appData.description}}')
+    title {{app.appData.name}} {{pageTitle}}
     link(rel="stylesheet", href="/css/production.css")
   body
     .navbar.navbar-default
@@ -16,12 +16,12 @@ html(ng-app="App" ng-controller="RootCtrl")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="/") {{appData.name}}
+          a.navbar-brand(href="/") {{app.appData.name}}
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li(ng-class="{active:isActive('/')}")
+            li(ng-class="{active:app.isActive('/')}")
               a(href="/") Home
-            li(ng-class="{active:isActive('/users')}")
+            li(ng-class="{active:app.isActive('/users')}")
               a(href="/users") Users
 
     block content

@@ -44,6 +44,7 @@ module.exports = function (grunt) {
           // 'bower_components/bootstrap/dist/js/bootstrap.min.js',
           'client/js/app.js',
           'client/js/config/*.js',
+          'client/js/factory/*.js',
           'client/js/services/*.js',
           'client/js/controllers/*.js'
          ],

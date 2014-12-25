@@ -1,3 +1,8 @@
-App.controller('MainPageCtrl', ['$scope', function() {
-  // Main Page controller
-}]);
+angular
+  .module('App')
+  .controller('MainPageCtrl', MainPageCtrl);
+
+
+function MainPageCtrl() {
+  // Main page controller
+};

@@ -1,4 +1,10 @@
-App.factory('Api', function($http, $routeParams) {
+angular
+  .module('App')
+  .factory('Api', Api);
+
+Api.$inject = ['$http', '$routeParams'];
+
+function Api($http, $routeParams) {
   return {
     getUsers : function() {
       return $http.get('api/users');
@@ -26,4 +32,4 @@ App.factory('Api', function($http, $routeParams) {
       return title;
     }
   };
-});
+}

@@ -1,18 +1,23 @@
-App.controller('RootCtrl', ['$scope','$location', 'Api',
-  function($scope, $location, Api) {
-  // get App data
+angular
+  .module('App')
+  .controller('RootCtrl', RootCtrl);
+
+RootCtrl.$inject = ['$location', 'Api'];
+
+function RootCtrl($location, Api) {
+
+    var vm = this;
 
     Api.getAppData()
-      .success(function(info) {
-        $scope.appData = info;
-      })
-      .error(function() {
-        $scope.appData = undefined;
-        console.error('Cant get App data');
-      });
+    .success(function(info) {
+      vm.appData = info;
+    })
+    .error(function() {
+      vm.appData = undefined;
+      console.error('Cant get App data');
+    });
 
-
-    $scope.isActive = function(route) {
+    vm.isActive = function(route) {
       return route === $location.path();
     };
-  }]);
+}

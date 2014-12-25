@@ -1,14 +1,20 @@
-App.controller('UsersCtrl', ['$scope', '$location', 'Api',
-  function($scope, $location, Api) {
+angular
+  .module('App')
+  .controller('UsersCtrl', UsersCtrl);
 
-    $scope.$parent.pageTitle = Api.getPageTitle($location.path());
-    // Get users
-    Api.getUsers()
-      .success(function(users) {
-        $scope.users = users;
-      })
-      .error(function() {
-        $scope.users = undefined;
-        console.log('Cant get user list');
-      });
-  }]);
+UsersCtrl.$inject = ['$location', 'Api'];
+
+function UsersCtrl($location, Api) {
+  var vm = this;
+
+  // this.$parent.pageTitle = Api.getPageTitle($location.path());
+  // Get users
+  Api.getUsers()
+    .success(function(users) {
+      vm.usersList = users;
+    })
+    .error(function() {
+      vm.usersList = undefined;
+      console.log('Cant get user list');
+    });
+}
