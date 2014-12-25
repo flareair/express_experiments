@@ -43,8 +43,9 @@ module.exports = function (grunt) {
           'bower_components/angular-route/angular-route.min.js',
           // 'bower_components/bootstrap/dist/js/bootstrap.min.js',
           'client/js/app.js',
-          'client/js/services.js',
-          'client/js/controllers.js'
+          'client/js/config/*.js',
+          'client/js/services/*.js',
+          'client/js/controllers/*.js'
          ],
         dest: 'public/js/production.js',
       },
