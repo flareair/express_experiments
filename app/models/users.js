@@ -62,7 +62,6 @@ usersSchema.virtual('password')
       return this.hashedPassword = null;
     }
     this.hashedPassword = this.encryptPassword(password);
-    
   })
   .get(function() {
     return this._plainPassword;
@@ -72,10 +71,13 @@ usersSchema.statics.all = function(callback) {
   this.find({}, callback);
 };
 
+
 usersSchema.statics.findOne = function(name, callback) {
   this.find({name: name}, callback);
 };
 
+
 var User = mongoose.model('Users', usersSchema);
+
 
 module.exports = User;
