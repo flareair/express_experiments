@@ -2,9 +2,9 @@ angular
   .module('App')
   .controller('RootCtrl', RootCtrl);
 
-RootCtrl.$inject = ['$location', 'Api', 'pageTitle'];
+RootCtrl.$inject = ['$location', 'api', 'pageTitle'];
 
-function RootCtrl($location, Api, pageTitle) {
+function RootCtrl($location, api, pageTitle) {
 
     var vm = this;
     
@@ -15,7 +15,7 @@ function RootCtrl($location, Api, pageTitle) {
     getAppData();
 
     function getAppData() {
-      return Api.getAppData()
+      return api.getAppData()
         .then (function(data) {
           vm.appData = data;
           return vm.appData;

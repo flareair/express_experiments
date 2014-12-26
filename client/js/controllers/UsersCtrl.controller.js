@@ -2,9 +2,9 @@ angular
   .module('App')
   .controller('UsersCtrl', UsersCtrl);
 
-UsersCtrl.$inject = ['Api', 'pageTitle'];
+UsersCtrl.$inject = ['api', 'pageTitle'];
 
-function UsersCtrl(Api, pageTitle) {
+function UsersCtrl(api, pageTitle) {
   var vm = this;
   vm.usersList = [];
 
@@ -13,10 +13,9 @@ function UsersCtrl(Api, pageTitle) {
   getUsers();
 
   function getUsers() {
-    return Api.getUsers()
+    return api.getUsers()
       .then (function(data) {
         vm.usersList = data;
-        console.log(vm.usersList);
         return vm.usersList;
       });
   }

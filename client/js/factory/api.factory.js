@@ -1,12 +1,12 @@
 angular
   .module('App')
-  .factory('Api', Api);
+  .factory('api', api);
 
-Api.$inject = ['$http'];
+api.$inject = ['$http'];
 
 
 
-function Api($http) {
+function api($http) {
 
   var services = {
     getUsers: getUsers,
