@@ -18,7 +18,11 @@ module.exports = function(config) {
       'bower_components/angular/angular.min.js',
       'bower_components/angular-route/angular-route.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'client/js/*.js',
+      'client/js/app.js',
+      'client/js/config/*.js',
+      'client/js/factory/*.js',
+      'client/js/services/*.js',
+      'client/js/controllers/*.js',
       'tests/client/*.js'
     ],
 

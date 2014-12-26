@@ -1,37 +1,22 @@
-describe('RootCtrl', function() {
-  var controller = null;
-  var $scope = null;
-  var $httpBackend = null;
-  var Api = null;
+describe('pageTitle factory', function() {
+  var factory;
+  beforeEach(module('App'));
 
-  beforeEach(function() {
-    module('App');
-  });
-
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _Api_) {
-    $httpBackend = _$httpBackend_;
-    $scope = $rootScope.$new();
-    Api = _Api_;
+  beforeEach(inject(function(pageTitle){
+     factory = pageTitle;
   }));
 
-  afterEach(function () { 
-      // $httpBackend.verifyNoOutstandingRequest();
-      // $httpBackend.verifyNoOutstandingExpectation();
+  it('Should return app name Microtalk by default', function() {
+    var title = factory.getTitle();
+    title.should.be.a.string;
+    title.should.equal('Microtalk');
   });
 
-  it('should get right appdata from server', function() {
-    console.log(Api.getUsers);
-    Api.getUsers()
-      .success(function(info) {
-        $scope.appData = info;
-        console.log('error!');
-        $scope.$apply();
-
-      })
-      .error(function() {
-        $scope.appData = undefined;
-        console.error('Cant get App data');
-      });
-    
+  it('Should set correct title', function() {
+    var newTitle = 'foobar';
+    factory.setTitle(newTitle);
+    var title = factory.getTitle();
+    title.should.be.a.string;
+    title.should.equal('Microtalk | ' + newTitle);
   });
 });

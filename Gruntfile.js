@@ -86,6 +86,11 @@ module.exports = function (grunt) {
         },
         src: ['tests/server/**/*.js']
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'tests/karma.conf.js'
+      }
     }
   });
  
@@ -96,6 +101,6 @@ module.exports = function (grunt) {
     'build', 'nodemon'
   ]);
   grunt.registerTask('test', [
-    'mochaTest'
+    'mochaTest', 'karma'
   ]);
 };
