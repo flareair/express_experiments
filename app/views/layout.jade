@@ -5,7 +5,7 @@ html(ng-app="App" ng-controller="RootCtrl as app")
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='{{app.appData.description}}')
-    title {{app.appData.name}} {{pageTitle}}
+    title {{app.pageTitle.getTitle()}}
     link(rel="stylesheet", href="/css/production.css")
   body
     .navbar.navbar-default

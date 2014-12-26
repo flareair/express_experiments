@@ -2,7 +2,8 @@ angular
   .module('App')
   .controller('MainPageCtrl', MainPageCtrl);
 
+MainPageCtrl.$inject = ['pageTitle'];
 
-function MainPageCtrl() {
-  // Main page controller
+function MainPageCtrl(pageTitle) {
+  pageTitle.setTitle('Welcome!');
 };

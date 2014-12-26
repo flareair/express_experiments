@@ -2,11 +2,12 @@ angular
   .module('App')
   .controller('UsersCtrl', UsersCtrl);
 
-UsersCtrl.$inject = ['$location', 'Api'];
+UsersCtrl.$inject = ['Api', 'pageTitle'];
 
-function UsersCtrl($location, Api) {
-  var vm = this;
-
+function UsersCtrl(Api, pageTitle) {
+  var vm = this;  
+  pageTitle.setTitle('Users');
+  
   // this.$parent.pageTitle = Api.getPageTitle($location.path());
   // Get users
   Api.getUsers()

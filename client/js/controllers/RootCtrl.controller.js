@@ -2,11 +2,14 @@ angular
   .module('App')
   .controller('RootCtrl', RootCtrl);
 
-RootCtrl.$inject = ['$location', 'Api'];
+RootCtrl.$inject = ['$location', 'Api', 'pageTitle'];
 
-function RootCtrl($location, Api) {
+function RootCtrl($location, Api, pageTitle) {
 
     var vm = this;
+    
+    vm.pageTitle = pageTitle;
+
 
     Api.getAppData()
     .success(function(info) {
