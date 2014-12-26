@@ -4,17 +4,24 @@ angular
 
 function pageTitle() {
   var title = 'Microtalk';
-  return {
-    getTitle: function() {
-      return title;
-    },
-    setTitle: function(newTitle) {
-      if (newTitle) {
-        title = 'Microtalk | ' + newTitle;
-      }
-      else {
-        title = 'Microtalk';
-      }
-    }
+
+  var service = {
+    getTitle: getTitle,
+    setTitle: setTitle
   };
+
+  return service;
+
+  function getTitle() {
+    return title;
+  }
+
+  function setTitle(newTitle) {
+    if (newTitle) {
+      title = 'Microtalk | ' + newTitle;
+    }
+    else {
+      title = 'Microtalk';
+    }
+  }
 }

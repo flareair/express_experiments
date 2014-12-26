@@ -5,5 +5,5 @@ angular
 MainPageCtrl.$inject = ['pageTitle'];
 
 function MainPageCtrl(pageTitle) {
-  pageTitle.setTitle('Welcome!');
+  pageTitle.setTitle();
 };

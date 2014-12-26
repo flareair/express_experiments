@@ -7,6 +7,7 @@ describe('pageTitle factory', function() {
   }));
 
   it('Should return app name Microtalk by default', function() {
+    factory.setTitle();
     var title = factory.getTitle();
     title.should.be.a.string;
     title.should.equal('Microtalk');
@@ -20,3 +21,4 @@ describe('pageTitle factory', function() {
     title.should.equal('Microtalk | ' + newTitle);
   });
 });
+
