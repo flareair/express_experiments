@@ -10,15 +10,17 @@ function RootCtrl($location, Api, pageTitle) {
     
     vm.pageTitle = pageTitle;
 
+    vm.appData = [];
 
-    Api.getAppData()
-    .success(function(info) {
-      vm.appData = info;
-    })
-    .error(function() {
-      vm.appData = undefined;
-      console.error('Cant get App data');
-    });
+    getAppData();
+
+    function getAppData() {
+      return Api.getAppData()
+        .then (function(data) {
+          vm.appData = data;
+          return vm.appData;
+        });
+    }
 
     vm.isActive = function(route) {
       return route === $location.path();

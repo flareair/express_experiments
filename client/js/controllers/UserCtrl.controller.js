@@ -2,21 +2,20 @@ angular
   .module('App')
   .controller('UserCtrl', UserCtrl);
 
-UserCtrl.$inject = ['Api', 'pageTitle'];
+UserCtrl.$inject = ['$routeParams', 'Api', 'pageTitle'];
 
-function UserCtrl(Api, pageTitle) {
+function UserCtrl($routeParams, Api, pageTitle) {
   var vm = this;
+  vm.info = [];
 
-  Api.getUser()
-    .success(function(user) {
-      // vm.$parent.pageTitle = Api.getPageTitle($location.path(), user.name);
-      vm.info = user;
-      pageTitle.setTitle(vm.info.name);
-      console.log(user);
-    })
-    .error(function() {
-      vm.info = undefined;
-      console.log('User not found!!!');
-      pageTitle.setTitle('User not found');
-    });
+  getUser();
+
+  function getUser() {
+    return Api.getUser($routeParams.name)
+      .then (function(data) {
+        vm.info = data;
+        return vm.info;
+      });
+  }
+
 }

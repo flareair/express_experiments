@@ -5,17 +5,19 @@ angular
 UsersCtrl.$inject = ['Api', 'pageTitle'];
 
 function UsersCtrl(Api, pageTitle) {
-  var vm = this;  
+  var vm = this;
+  vm.usersList = [];
+
   pageTitle.setTitle('Users');
   
-  // this.$parent.pageTitle = Api.getPageTitle($location.path());
-  // Get users
-  Api.getUsers()
-    .success(function(users) {
-      vm.usersList = users;
-    })
-    .error(function() {
-      vm.usersList = undefined;
-      console.log('Cant get user list');
-    });
+  getUsers();
+
+  function getUsers() {
+    return Api.getUsers()
+      .then (function(data) {
+        vm.usersList = data;
+        console.log(vm.usersList);
+        return vm.usersList;
+      });
+  }
 }
